@@ -1,0 +1,115 @@
+:root {
+  --background: #d32f2f; /* Vibrant red from Figma */
+  --foreground: #ffffff;
+  --primary: #f8e5a1; /* Cream/Pale Yellow */
+  --primary-hover: #f1d570;
+  --card-bg: rgba(183, 28, 28, 0.4); /* Darker red tint */
+  --card-border: rgba(255, 255, 255, 0.15);
+  --success: #f8e5a1; /* Using yellow for success instead of green */
+  --danger: #b71c1c;
+  --radius: 20px;
+  --shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2);
+  --font-cursive: 'Caveat', cursive;
+  --font-heading: 'Outfit', sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  /* Grid pattern from Figma screenshot */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+h1, h2, h3, .heading {
+  font-family: var(--font-heading);
+}
+
+.cursive {
+  font-family: var(--font-cursive);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input, textarea {
+  font-family: inherit;
+}
+
+/* Glassmorphism/Card styling */
+.glass {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+}
+
+.btn {
+  background-color: var(--primary);
+  color: #8c1c1c; /* Dark red text */
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(248, 229, 161, 0.4);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Star decoration based on Figma */
+.stars {
+  color: var(--primary);
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
