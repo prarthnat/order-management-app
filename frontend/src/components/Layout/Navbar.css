@@ -3,7 +3,7 @@
   top: 0;
   z-index: 50;
   background: var(--background);
-  border-bottom: 1px solid var(--card-border);
+  /* Removed border-bottom for a cleaner look that matches the grid */
 }
 
 .nav-container {

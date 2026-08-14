@@ -51,4 +51,29 @@ describe('API Endpoints', () => {
       expect(res.body.error).toBe('Missing delivery details');
     });
   });
+  describe('GET /api/orders/:id', () => {
+    it('should return the order status', async () => {
+      const payload = {
+        items: [{ id: '1', name: 'Pizza', price: 10, quantity: 2 }],
+        deliveryDetails: { name: 'Test User', address: '123 Test Ave', phone: '555-5555' }
+      };
+
+      const createRes = await request(app)
+        .post('/api/orders')
+        .send(payload);
+      
+      const orderId = createRes.body.id;
+
+      const res = await request(app).get(`/api/orders/${orderId}`);
+      expect(res.statusCode).toEqual(200);
+      expect(res.body.id).toEqual(orderId);
+      expect(res.body.status).toBe('Order Received');
+    });
+
+    it('should return 404 for invalid order id', async () => {
+      const res = await request(app).get('/api/orders/invalid-id-123');
+      expect(res.statusCode).toEqual(404);
+      expect(res.body.error).toBe('Order not found');
+    });
+  });
 });

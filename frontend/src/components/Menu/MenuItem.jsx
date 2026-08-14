@@ -11,7 +11,7 @@ export default function MenuItem({ item }) {
         <img src={item.image} alt={item.name} className="food-image" />
       </div>
       <div className="content">
-        <h3 className="title">{item.name}</h3>
+        <h3 className="item-title">{item.name}</h3>
         <p className="description">{item.description}</p>
         <div className="bottom-row">
           <span className="priceTag">${item.price.toFixed(2)}</span>
