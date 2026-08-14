@@ -15,7 +15,8 @@ export default function OrderTracking() {
 
     const fetchOrder = async () => {
       try {
-        const res = await fetch(`http://localhost:5001/api/orders/${id}`);
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+        const res = await fetch(`${API_URL}/api/orders/${id}`);
         const data = await res.json();
 
         if (!res.ok) {

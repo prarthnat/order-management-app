@@ -9,7 +9,8 @@ export default function Home() {
   useEffect(() => {
     async function fetchMenu() {
       try {
-        const res = await fetch("http://localhost:5001/api/menu");
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+        const res = await fetch(`${API_URL}/api/menu`);
         const data = await res.json();
         setMenuItems(data);
       } catch (error) {
